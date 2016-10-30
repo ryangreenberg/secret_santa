@@ -1,10 +1,10 @@
 people:
-- Alice <alice@example.com>
-- Bob <bob@example.com>
-- Carol <carol@example.com>
-- Derek <derek@example.com>
-- Eve <eve@example.com>
-- Frank <frank@example.com>
+  - Alice <alice@example.com>
+  - Bob <bob@example.com>
+  - Carol <carol@example.com>
+  - Derek <derek@example.com>
+  - Eve <eve@example.com>
+  - Frank <frank@example.com>
 
 # One person in a group cannot give to someone else in the same group.
 exclusion_groups:
