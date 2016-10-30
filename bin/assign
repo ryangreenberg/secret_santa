@@ -7,8 +7,7 @@ require_all 'lib'
 require 'yaml'
 require 'pp'
 
-# USAGE:
-# ./secret_santa config_file.yml
+USAGE = "Usage: assign <config_file.yml>"
 
 def debug(obj)
   p obj if ENV["DEBUG"]
@@ -16,6 +15,7 @@ end
 
 def main(args)
   config_file = args.first
+  abort USAGE unless config_file
   config = YAML.load_file(config_file)
 
   people = config["people"].map {|ea| Person.from(ea) }
