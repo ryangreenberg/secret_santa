@@ -11,3 +11,26 @@ exclusion_groups:
   - [Alice, Bob]
   - [Carol, Derek]
   - [Eve, Frank]
+
+# Mustache template to be used for sending emails
+# See README for a list of template variables.
+message:
+  subject: Your Secret Santa 2016
+  body:
+    |
+      Dear {{#giver}}{{first_name}}{{/giver}},
+
+      Thanks for being part of our Christmas 2016 Secret Santa.
+
+      Your Secret Santa is: {{#recipient}}{{full_name}}{{/recipient}}.
+
+      Merry Christmas,
+      Secret Santa Bot
+
+# Configuration to send email messages
+email:
+  from_address: secretsanta@example.com
+  username: secretsanta@example.com
+  password: supersecret
+  server: mail.example.com
+  port: 587

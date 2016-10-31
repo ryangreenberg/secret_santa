@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'require_all'
+require_all 'lib'
+
+require 'mail'
+require 'yaml'
+
+USAGE = "Usage: test_email <config_file>"
+
+def main(args)
+  config_file = args.first
+  abort USAGE unless config_file
+  config = YAML.load_file(config_file)
+
+  email_config = config["email"]
+  Mailer.configure(email_config)
+
+  print "Enter email address to receive test message: "
+  to_address = STDIN.gets.strip
+  from_address = config["message"]["from"]
+
+  message = Mail.new do
+    to      to_address
+    from    from_address
+    subject "Test Secret Santa Message"
+    body    "This is a test message"
+  end
+
+  begin
+    message.deliver!
+  rescue StandardError => e
+    warn e
+    abort "Unable to send email with config #{email_config}."
+  end
+end
+
+main(ARGV) if $PROGRAM_NAME == __FILE__

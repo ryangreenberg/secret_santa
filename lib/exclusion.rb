@@ -8,7 +8,7 @@ class Exclusion
 
     exclusions = Hash[people.map do |person|
       not_self = [person]
-      not_from_groups = exclusion_groups.select {|g| g.include?(person) }.flatten
+      not_from_groups = groups.select {|g| g.include?(person) }.flatten
       [person, Set.new(not_self + not_from_groups)]
     end]
   end
