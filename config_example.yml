@@ -6,7 +6,9 @@ people:
   - Eve <eve@example.com>
   - Frank <frank@example.com>
 
-# One person in a group cannot give to someone else in the same group.
+# Each person in a group cannot give to someone else in the same group.
+# This is useful for ensuring, for example, that couples are not assigned
+# to each other.
 exclusion_groups:
   - [Alice, Bob]
   - [Carol, Derek]
@@ -15,6 +17,7 @@ exclusion_groups:
 # Mustache template to be used for sending emails
 # See README for a list of template variables.
 message:
+  from: Secret Santa Bot <youremail@example.com>
   subject: Your Secret Santa 2016
   body:
     |
@@ -28,8 +31,8 @@ message:
       Secret Santa Bot
 
 # Configuration to send email messages
+# Use the SMTP configuration for your email server.
 email:
-  from_address: secretsanta@example.com
   username: secretsanta@example.com
   password: supersecret
   server: mail.example.com
