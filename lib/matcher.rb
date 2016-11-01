@@ -21,7 +21,7 @@ class Matcher
       end
       solution
     rescue NoSolutionAvailable => e
-      warn e
+      warn e if ENV["DEBUG"]
       people.shuffle!
       retry
     end
