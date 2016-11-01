@@ -1,3 +1,10 @@
+# Matcher matches givers and recipients by taking each person,
+# removing their exclusions from the remaining participants,
+# and picking one at random.
+#
+# If there are no available people, Matcher does not backtrack,
+# it simply starts the process over. If a set of constraints
+# is unsatisfiable, Matcher#match will never terminate.
 class Matcher
   class NoSolutionAvailable < RuntimeError; end
 
