@@ -1,7 +1,7 @@
 require 'mustache'
 require 'yaml'
 
-module Notify
+module Commands::Notify
   USAGE = "Usage: notify <config_file.yml> <assignments_file.yml>"
 
   def self.main(args)

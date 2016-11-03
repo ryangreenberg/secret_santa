@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Assign
+module Commands::Assign
   USAGE = "Usage: assign <config_file.yml>"
   YMDHMS = "%Y-%m-%d_%H-%M-%S"
 

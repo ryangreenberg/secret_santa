@@ -4,4 +4,4 @@ require 'bundler/setup'
 require 'require_all'
 require_all 'lib'
 
-Assign.main(ARGV) if $PROGRAM_NAME == __FILE__
+Commands::Assign.main(ARGV) if $PROGRAM_NAME == __FILE__
