@@ -10,7 +10,9 @@ module Commands::Assign
     config = YAML.load_file(config_file)
 
     people = config["people"].map {|ea| Person.from(ea) }
-    exclusions = Exclusion.from_groups(people, config["exclusion_groups"])
+    exclusion_groups = config["exclusion_groups"] || []
+    direct_exclusions = config["direct_exclusions"] || []
+    exclusions = Exclusion.from_groups(people, exclusion_groups, direct_exclusions)
     exclusions.each do |k, v|
       debug "#{k}: not #{v.to_a.map {|ea| ea.name }.join(', ')}"
     end

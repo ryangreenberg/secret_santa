@@ -14,6 +14,13 @@ exclusion_groups:
   - [Carol, Derek]
   - [Eve, Frank]
 
+# Each person on the left will not be assigned the person on the right. This
+# is useful for ensuring that people are not assigned the same person they had
+# last year.
+direct_exclusions:
+  - [Alice, Derek]
+  - [Eve, Bob]
+
 # Mustache template to be used for sending emails
 # See README for a list of template variables.
 message:
