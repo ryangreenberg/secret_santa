@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'require_all'
+require_all 'lib'
+
+Commands::Reveal.main(ARGV) if $PROGRAM_NAME == __FILE__
