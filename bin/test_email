@@ -30,6 +30,7 @@ def main(args)
 
   begin
     message.deliver!
+    puts "Sent message! Check the inbox for #{to_address} for a message."
   rescue StandardError => e
     warn e
     abort "Unable to send email with config #{email_config}."
